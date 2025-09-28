@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Medical-grade design system for dementia detection platform
+All colors are HSL for accessibility and theming
+*/
+
+@layer base {
+  :root {
+    /* Core medical blue palette */
+    --background: 220 25% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Medical trust blue */
+    --primary: 210 85% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 85% 68%;
+
+    /* Soft gray for secondary elements */
+    --secondary: 215 20% 94%;
+    --secondary-foreground: 215 25% 25%;
+
+    /* Subtle backgrounds */
+    --muted: 215 20% 96%;
+    --muted-foreground: 215 15% 55%;
+
+    /* Calming green for positive actions */
+    --accent: 150 60% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Health orange for important CTAs */
+    --health-orange: 25 90% 60%;
+    --health-orange-foreground: 0 0% 100%;
+
+    /* Alert colors */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 215 20% 88%;
+    --input: 215 20% 92%;
+    --ring: 210 85% 58%;
+
+    --radius: 0.75rem;
+
+    /* Medical gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 85% 58%), hsl(210 85% 68%));
+    --gradient-trust: linear-gradient(180deg, hsl(215 20% 98%), hsl(215 20% 94%));
+    --gradient-calm: linear-gradient(135deg, hsl(150 60% 55%), hsl(180 50% 60%));
+
+    /* Accessibility shadows */
+    --shadow-soft: 0 4px 20px hsl(215 25% 15% / 0.08);
+    --shadow-medical: 0 8px 32px hsl(210 85% 58% / 0.15);
+    --shadow-focus: 0 0 0 3px hsl(210 85% 58% / 0.3);
+
+    /* Typography scale for accessibility */
+    --text-xs: 0.875rem;
+    --text-sm: 1rem;
+    --text-base: 1.125rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 2rem;
+    --text-3xl: 2.5rem;
+    --text-4xl: 3rem;
+
+    /* Spacing for accessibility */
+    --space-comfortable: 1.5rem;
+    --space-generous: 2rem;
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 215 25% 8%;
+    --foreground: 215 20% 92%;
+
+    --card: 215 25% 10%;
+    --card-foreground: 215 20% 92%;
+
+    --popover: 215 25% 10%;
+    --popover-foreground: 215 20% 92%;
+
+    --primary: 210 85% 68%;
+    --primary-foreground: 215 25% 8%;
+
+    --secondary: 215 20% 15%;
+    --secondary-foreground: 215 20% 85%;
+
+    --muted: 215 20% 12%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 150 60% 65%;
+    --accent-foreground: 215 25% 8%;
+
+    --health-orange: 25 85% 65%;
+    --health-orange-foreground: 215 25% 8%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 215 25% 8%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 18%;
+    --ring: 210 85% 68%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(210 85% 68%), hsl(210 85% 78%));
+    --gradient-trust: linear-gradient(180deg, hsl(215 25% 8%), hsl(215 20% 12%));
+    --gradient-calm: linear-gradient(135deg, hsl(150 60% 65%), hsl(180 50% 70%));
+
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.4);
+    --shadow-medical: 0 8px 32px hsl(210 85% 68% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-size: var(--text-base);
+    line-height: 1.6;
+    font-feature-settings: "kern", "liga", "clig", "calt";
+  }
+
+  /* Accessibility-first typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+  h4 { font-size: var(--text-xl); }
+
+  /* Large text mode for accessibility */
+  .large-text {
+    font-size: 1.25em;
+  }
+  
+  .large-text h1 { font-size: calc(var(--text-4xl) * 1.25); }
+  .large-text h2 { font-size: calc(var(--text-3xl) * 1.25); }
+  .large-text h3 { font-size: calc(var(--text-2xl) * 1.25); }
+  .large-text p, .large-text span { font-size: calc(var(--text-base) * 1.25); }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+    border-radius: var(--radius);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
